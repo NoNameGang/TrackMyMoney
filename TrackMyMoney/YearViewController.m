@@ -72,8 +72,13 @@
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(int)thisDateCf.year - (int)firstDateCf.year inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     
     // FUCK: CF Ref need to be released!!
-    CFRelease(firstDateRef);
-    CFRelease(timeZoneRef);
+    if(firstDateRef){
+        CFRelease(firstDateRef);
+    }
+    
+    if(timeZoneRef){
+        CFRelease(timeZoneRef);
+    }
 }
 
 - (void)didReceiveMemoryWarning
