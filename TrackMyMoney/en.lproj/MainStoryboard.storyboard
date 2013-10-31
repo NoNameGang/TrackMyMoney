@@ -50,7 +50,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Egh-LO-pyk">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Odb-4L-Q49">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="Odb-4L-Q49">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="7bh-RE-Gk4">
                                 <rect key="frame" x="282" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -158,7 +158,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="AAY-B4-eXm">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="vZH-WX-ThF">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="vZH-WX-ThF">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="ZIE-GC-LgM">
                                 <rect key="frame" x="282" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

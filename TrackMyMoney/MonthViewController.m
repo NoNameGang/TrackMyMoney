@@ -75,8 +75,14 @@
     
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:((int)selectMonthDate.year - (int)firstDateCf.year) * 12 + selectMonthDate.month - 1 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     
-    CFRelease(timeZoneRef);
-    CFRelease(firstDateRef);
+    if(timeZoneRef){
+        CFRelease(timeZoneRef);
+    }
+
+    if(firstDateRef){
+        CFRelease(firstDateRef);
+    }
+
     //NSLog(@"123:%d.%d",[selectYear intValue],[selectMonth intValue]);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -103,7 +109,10 @@
     month_date.minute=0;
     month_date.second=1;
     int day = (int)CFAbsoluteTimeGetDayOfWeek(CFGregorianDateGetAbsoluteTime(month_date,tz),tz);
-    CFRelease(tz);
+    
+    if(tz){
+        CFRelease(tz);
+    }
     
     return day;
 }
@@ -198,7 +207,9 @@
    
     }
     
-    CFRelease(timeZoneRef);
+    if(timeZoneRef){
+        CFRelease(timeZoneRef);
+    }
     
     return cell;
 }
