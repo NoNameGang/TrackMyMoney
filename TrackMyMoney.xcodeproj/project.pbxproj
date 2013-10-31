@@ -18,6 +18,7 @@
 		18640997182230EA00697641 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18640988182230EA00697641 /* MainViewController.m */; };
 		18640998182230EA00697641 /* MonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864098A182230EA00697641 /* MonthViewController.m */; };
 		1864099A182230EA00697641 /* YearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864098E182230EA00697641 /* YearViewController.m */; };
+		1864099E18224EE900697641 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1864099D18224EE900697641 /* CoreData.framework */; };
 		284EAAA117467372002CEFCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284EAAA017467372002CEFCB /* UIKit.framework */; };
 		284EAAA317467372002CEFCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284EAAA217467372002CEFCB /* Foundation.framework */; };
 		284EAAA517467372002CEFCB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284EAAA417467372002CEFCB /* CoreGraphics.framework */; };
@@ -45,6 +46,7 @@
 		1864098D182230EA00697641 /* YearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearViewController.h; sourceTree = "<group>"; };
 		1864098E182230EA00697641 /* YearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearViewController.m; sourceTree = "<group>"; };
 		1864099B1822316400697641 /* TrackMyMoney-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TrackMyMoney-Info.plist"; sourceTree = "<group>"; };
+		1864099D18224EE900697641 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		284EAA9D17467372002CEFCB /* TrackMyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackMyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		284EAAA017467372002CEFCB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		284EAAA217467372002CEFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1864099E18224EE900697641 /* CoreData.framework in Frameworks */,
 				284EAAA117467372002CEFCB /* UIKit.framework in Frameworks */,
 				284EAAA317467372002CEFCB /* Foundation.framework in Frameworks */,
 				284EAAA517467372002CEFCB /* CoreGraphics.framework in Frameworks */,
@@ -120,6 +123,7 @@
 		284EAA9F17467372002CEFCB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1864099D18224EE900697641 /* CoreData.framework */,
 				284EAAA017467372002CEFCB /* UIKit.framework */,
 				284EAAA217467372002CEFCB /* Foundation.framework */,
 				284EAAA417467372002CEFCB /* CoreGraphics.framework */,
