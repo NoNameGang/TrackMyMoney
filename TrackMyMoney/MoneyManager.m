@@ -59,16 +59,16 @@
     NSError *error = nil;
     //执行获取数据请求，返回数组
     NSMutableArray *mutableFetchResult = [[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-    if (mutableFetchResult == nil) {
-        NSLog(@"Error: %@,%@",error,[error userInfo]);
-    }
+    //if (mutableFetchResult == nil) {
+        //NSLog(@"Error: %@,%@",error,[error userInfo]);
+    //}
     moneyData = mutableFetchResult;
     
-    NSLog(@"The count of entry:%i",[moneyData count]);
+    //NSLog(@"The count of entry:%i",[moneyData count]);
     
-    for (Money *money in moneyData) {
-        NSLog(@"Index:%@---Date:%@---Receipt:%@",money.index,money.date,money.receipt);
-    }
+    //for (Money *money in moneyData) {
+        //NSLog(@"Index:%@---Date:%@---Receipt:%@",money.index,money.date,money.receipt);
+    //}
     
     //[mutableFetchResult release];
     //[request release];
