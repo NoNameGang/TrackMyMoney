@@ -21,6 +21,9 @@
 		284EAAA117467372002CEFCB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284EAAA017467372002CEFCB /* UIKit.framework */; };
 		284EAAA317467372002CEFCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284EAAA217467372002CEFCB /* Foundation.framework */; };
 		284EAAA517467372002CEFCB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284EAAA417467372002CEFCB /* CoreGraphics.framework */; };
+		29F3E5DE18223DAF00725F27 /* Money.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 29F3E5DC18223DAF00725F27 /* Money.xcdatamodeld */; };
+		29F3E5E4182240F800725F27 /* MoneyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F3E5E3182240F800725F27 /* MoneyManager.m */; };
+		29F3E5E71822417700725F27 /* Money.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F3E5E61822417700725F27 /* Money.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,11 @@
 		284EAAA017467372002CEFCB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		284EAAA217467372002CEFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		284EAAA417467372002CEFCB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		29F3E5DD18223DAF00725F27 /* Money.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Money.xcdatamodel; sourceTree = "<group>"; };
+		29F3E5E2182240F800725F27 /* MoneyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyManager.h; sourceTree = "<group>"; };
+		29F3E5E3182240F800725F27 /* MoneyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyManager.m; sourceTree = "<group>"; };
+		29F3E5E51822417700725F27 /* Money.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Money.h; sourceTree = "<group>"; };
+		29F3E5E61822417700725F27 /* Money.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Money.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,11 @@
 				1864098C182230EA00697641 /* TrackMyMoney-Prefix.pch */,
 				1864098D182230EA00697641 /* YearViewController.h */,
 				1864098E182230EA00697641 /* YearViewController.m */,
+				29F3E5DC18223DAF00725F27 /* Money.xcdatamodeld */,
+				29F3E5E51822417700725F27 /* Money.h */,
+				29F3E5E61822417700725F27 /* Money.m */,
+				29F3E5E2182240F800725F27 /* MoneyManager.h */,
+				29F3E5E3182240F800725F27 /* MoneyManager.m */,
 			);
 			path = TrackMyMoney;
 			sourceTree = "<group>";
@@ -145,7 +158,7 @@
 				ORGANIZATIONNAME = he110world;
 				TargetAttributes = {
 					284EAA9C17467372002CEFCB = {
-						DevelopmentTeam = ZKUQX6QZP8;
+						DevelopmentTeam = 34DBXU6X45;
 					};
 				};
 			};
@@ -186,10 +199,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29F3E5E71822417700725F27 /* Money.m in Sources */,
 				1864098F182230EA00697641 /* AppDelegate.m in Sources */,
 				18640998182230EA00697641 /* MonthViewController.m in Sources */,
 				18640996182230EA00697641 /* main.m in Sources */,
+				29F3E5DE18223DAF00725F27 /* Money.xcdatamodeld in Sources */,
 				18640990182230EA00697641 /* CameraViewController.m in Sources */,
+				29F3E5E4182240F800725F27 /* MoneyManager.m in Sources */,
 				18640997182230EA00697641 /* MainViewController.m in Sources */,
 				1864099A182230EA00697641 /* YearViewController.m in Sources */,
 			);
@@ -341,6 +357,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		29F3E5DC18223DAF00725F27 /* Money.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				29F3E5DD18223DAF00725F27 /* Money.xcdatamodel */,
+			);
+			currentVersion = 29F3E5DD18223DAF00725F27 /* Money.xcdatamodel */;
+			path = Money.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 284EAA9517467372002CEFCB /* Project object */;
 }
