@@ -24,6 +24,7 @@
 		29F3E5DE18223DAF00725F27 /* Money.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 29F3E5DC18223DAF00725F27 /* Money.xcdatamodeld */; };
 		29F3E5E4182240F800725F27 /* MoneyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F3E5E3182240F800725F27 /* MoneyManager.m */; };
 		29F3E5E71822417700725F27 /* Money.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F3E5E61822417700725F27 /* Money.m */; };
+		29F3E5E91822543600725F27 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29F3E5E81822543600725F27 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		29F3E5E3182240F800725F27 /* MoneyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyManager.m; sourceTree = "<group>"; };
 		29F3E5E51822417700725F27 /* Money.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Money.h; sourceTree = "<group>"; };
 		29F3E5E61822417700725F27 /* Money.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Money.m; sourceTree = "<group>"; };
+		29F3E5E81822543600725F27 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29F3E5E91822543600725F27 /* CoreData.framework in Frameworks */,
 				284EAAA117467372002CEFCB /* UIKit.framework in Frameworks */,
 				284EAAA317467372002CEFCB /* Foundation.framework in Frameworks */,
 				284EAAA517467372002CEFCB /* CoreGraphics.framework in Frameworks */,
@@ -120,6 +123,7 @@
 		284EAA9F17467372002CEFCB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29F3E5E81822543600725F27 /* CoreData.framework */,
 				284EAAA017467372002CEFCB /* UIKit.framework */,
 				284EAAA217467372002CEFCB /* Foundation.framework */,
 				284EAAA417467372002CEFCB /* CoreGraphics.framework */,

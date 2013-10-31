@@ -8,6 +8,8 @@
 
 #import "YearViewController.h"
 #import "MonthViewController.h"
+#import "MoneyManager.h"
+#import "Money.h"
 
 @interface YearViewController ()
 
@@ -19,6 +21,7 @@
     NSArray *years;
     NSArray *bills;
     NSArray *images;
+    AppDelegate *myDelegate;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -26,7 +29,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        
+        //MoneyManager. = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -34,35 +37,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    //years = [NSArray arrayWithObjects:@"2010", @"2011", @"2012", @"2013", nil];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Accounting" ofType:@"plist"];
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-    dates = [dict objectForKey:@"Date"];
-    
-    NSDate *firstDate = [dates objectAtIndex:0];
+    NSPredicate *predicate;
+    predicate = [NSPredicate predicateWithFormat:@"receipt > %d",0];
+    MoneyManager *mm = [[MoneyManager alloc] init];
+    NSMutableArray *moneyData = [mm load:predicate];
+
+    NSDate *firstDate;
+    if ([mm getCount] == 0) {
+        firstDate = [NSDate date];
+    }else{
+        Money *firstRecord = [moneyData objectAtIndex:0];
+        firstDate = firstRecord.date;
+    }
+    //NSDate *firstDate = [moneyData objectAtIndex:0];
     CFDateRef firstDateRef = CFBridgingRetain(firstDate);
     CFAbsoluteTime firstTime = CFDateGetAbsoluteTime(firstDateRef);
     CFTimeZoneRef timeZoneRef = CFTimeZoneCopyDefault();
     CFGregorianDate firstDateCf = CFAbsoluteTimeGetGregorianDate(firstTime,timeZoneRef);
     CFAbsoluteTime thisTime =  CFAbsoluteTimeGetCurrent();
     CFGregorianDate thisDateCf = CFAbsoluteTimeGetGregorianDate(thisTime,timeZoneRef);
-/*
-    NSDateFormatter *formatter =[[NSDateFormatter alloc] init];
-    [formatter setTimeStyle:NSDateFormatterMediumStyle];
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
-    
-    comps = [calendar components:unitFlags fromDate:firstDate];
-    int firstYear = comps.year;
-    comps = [calendar components:unitFlags fromDate:[NSDate date]];
-    int thisYear = comps.year;
-    */
+
     years = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", (int)firstDateCf.year], nil];
+    
+    
+  
     
     
     for (int cnt = (int)firstDateCf.year + 1; cnt <= (int)thisDateCf.year; cnt++) {
@@ -72,8 +72,13 @@
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(int)thisDateCf.year - (int)firstDateCf.year inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     
     // FUCK: CF Ref need to be released!!
-    //CFRelease(firstDateRef);
-    //CFRelease(timeZoneRef);
+    if(firstDateRef){
+        CFRelease(firstDateRef);
+    }
+    
+    if(timeZoneRef){
+        CFRelease(timeZoneRef);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,19 +109,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-    static NSString *simpleTableIdentifier = @"SimpleTableViewCell";
-    SimpleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (!cell) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SimpleTableViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-        //cell.contentView.userInteractionEnabled = NO;
-        //[cell reuseIdentifier:simpleTableIdentifier];
-        
-    }*/
-    
-    //cell.yearLabel.text = [years objectAtIndex:indexPath.row];
-    
     static NSString *simpleTableIdentifier = @"YearsCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -131,7 +123,7 @@
     }
     
     //UILabel *yearLabel = (UILabel *)[cell.contentView viewWithTag:99];
-    UILabel *yearLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 150, 30)];
+    UILabel *yearLabel = [[UILabel alloc] initWithFrame:CGRectMake(52, 20, 150, 30)];
     yearLabel.text = [years objectAtIndex:indexPath.row];
     yearLabel.font = [UIFont systemFontOfSize:24];
     yearLabel.userInteractionEnabled = FALSE;
