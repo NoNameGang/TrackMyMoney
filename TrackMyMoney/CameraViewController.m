@@ -40,7 +40,14 @@
     [self.view addSubview:self.imagePicker.view];
     
     self.imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
-    self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    else
+    {
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    }
     self.imagePicker.delegate = self;
     
     //[self presentViewController:self.imagePicker animated:YES completion:nil];
