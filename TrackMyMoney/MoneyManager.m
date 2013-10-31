@@ -12,11 +12,22 @@
 @implementation MoneyManager
 
 
-- (BOOL)add:(int32_t)index Receipt:(float)receipt Date:(NSDate *)date Pic:(NSString *)pic Address:(NSString *)address{
+- (BOOL)add:(float)receipt Pic:(NSString *)pic{
     Money *money = (Money *)[NSEntityDescription insertNewObjectForEntityForName:@"Money" inManagedObjectContext:self.managedObjectContext];
     
-    [money setIndex:[NSNumber numberWithInt:index]];
+    
+    NSString *address = @"None";
+    
+    NSDate *date = [NSDate date];
+    CFDateRef dateRef = CFBridgingRetain(date);
+    CFAbsoluteTime time = CFDateGetAbsoluteTime(dateRef);
+    CFTimeZoneRef timeZoneRef = CFTimeZoneCopyDefault();
+    CFGregorianDate dateCf = CFAbsoluteTimeGetGregorianDate(time,timeZoneRef);
+    int dateNo = (int)dateCf.year*10000 + dateCf.month * 100 + dateCf.day;
+    
+    [money setIndex:[NSNumber numberWithInt:self.getCount + 1]];
     [money setDate:date];
+    [money setDateNo:[NSNumber numberWithInt:dateNo]];
     [money setReceipt:[NSNumber numberWithFloat:receipt]];
     [money setPic:pic];
     [money setAddress:address];
