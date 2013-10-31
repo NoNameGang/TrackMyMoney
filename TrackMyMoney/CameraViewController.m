@@ -89,5 +89,14 @@
     // Just popup a numpad
     
     //[self performSegueWithIdentifier:@"GotoOCR" sender:self];
+    
+    // Save image to file
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH'-'mm'-'ss'Z'"];
+
+    NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
+    
+    NSData* imageData = UIImageJPEGRepresentation(image, 0.8);
+    [imageData writeToFile:dateString atomically:YES];
 }
 @end

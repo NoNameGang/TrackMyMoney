@@ -75,7 +75,6 @@
     if(firstDateRef){
         CFRelease(firstDateRef);
     }
-    
     if(timeZoneRef){
         CFRelease(timeZoneRef);
     }
