@@ -7,6 +7,8 @@
 //
 
 #import "MonthViewController.h"
+#import "Money.h"
+#import "MoneyManager.h"
 
 @interface MonthViewController (){
     NSArray *years;
@@ -45,14 +47,21 @@
     selectMonthDate.year = [selectYear intValue];
     selectMonthDate.month = [selectMonth intValue];
     
-    //NSLog(@"weekday:%d",[self getMonthWeekday:currentMonthDate]);
     
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Accounting" ofType:@"plist"];
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-    dates = [dict objectForKey:@"Date"];
-    NSDate *firstDate = [dates objectAtIndex:0];
+    NSPredicate *predicate;
+    predicate = [NSPredicate predicateWithFormat:@"receipt > %d",0];
+    MoneyManager *mm = [[MoneyManager alloc] init];
+    NSMutableArray *moneyData = [mm load:predicate];
     
+
+    NSDate *firstDate;
+    if ([mm getCount] == 0) {
+        firstDate = [NSDate date];
+    }else{
+        Money *firstRecord = [moneyData objectAtIndex:0];
+        firstDate = firstRecord.date;
+    }
     CFDateRef firstDateRef = CFBridgingRetain(firstDate);
     CFAbsoluteTime firstTime = CFDateGetAbsoluteTime(firstDateRef);
     CFGregorianDate firstDateCf = CFAbsoluteTimeGetGregorianDate(firstTime,timeZoneRef);
@@ -83,12 +92,6 @@
         CFRelease(firstDateRef);
     }
 
-    //NSLog(@"123:%d.%d",[selectYear intValue],[selectMonth intValue]);
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -175,12 +178,6 @@
         }
     }
     
-    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 150, 30)];
-    monthLabel.text = [months objectAtIndex:indexPath.row];
-    monthLabel.font = [UIFont systemFontOfSize:24];
-    monthLabel.userInteractionEnabled = FALSE;
-    [cell.contentView addSubview:monthLabel];
-    
     
     //UILabel *monthLabel = (UILabel *)[cell.contentView viewWithTag:99];
     
@@ -195,6 +192,12 @@
     if (weekday == 7) {
         weekday = 0;
     }
+    
+    UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(27 + weekday % 7 * 40, 20, 150, 30)];
+    monthLabel.text = [months objectAtIndex:indexPath.row];
+    monthLabel.font = [UIFont systemFontOfSize:24];
+    monthLabel.userInteractionEnabled = FALSE;
+    [cell.contentView addSubview:monthLabel];
     
     for (int cnt = 1; cnt <= [self getDayCountOfaMonth:currentMonthDate]; cnt++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
