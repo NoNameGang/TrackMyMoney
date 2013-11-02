@@ -40,9 +40,9 @@
     [self.view addSubview:self.imagePicker.view];
     
     self.imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     else
     {
@@ -56,6 +56,9 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    
+    self.imagePicker = nil;
+
     // Dispose of any resources that can be recreated.
 }
 
@@ -92,7 +95,7 @@
     
     // Save image to file
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH'-'mm'-'ss'Z'"];
+    [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'-'HH'-'mm'-'ss'.jpg'"];
 
     NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
     
