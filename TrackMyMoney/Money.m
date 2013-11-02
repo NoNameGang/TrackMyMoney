@@ -11,10 +11,11 @@
 
 @implementation Money
 
-@dynamic date;
 @dynamic address;
-@dynamic receipt;
+@dynamic date;
 @dynamic index;
 @dynamic pic;
+@dynamic receipt;
+@dynamic dateNo;
 
 @end

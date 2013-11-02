@@ -27,7 +27,7 @@
 //managedObjectContext的初始化赋值函数
 -(NSManagedObjectContext *)managedObjectContext;
 
-- (BOOL)add:(int32_t)index Receipt:(float)receipt Date:(NSDate *)date Pic:(NSString *)pic Address:(NSString *)address;
+- (BOOL)add:(float)receipt Pic:(NSString *)pic;
 //- (BOOL)remove:(id)sender;
 //- (BOOL)edit:(id)sender;
 - (NSMutableArray *)load:(NSPredicate *)predicate;

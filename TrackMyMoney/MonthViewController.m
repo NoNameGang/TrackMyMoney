@@ -7,6 +7,7 @@
 //
 
 #import "MonthViewController.h"
+#import "DayViewController.h"
 #import "Money.h"
 #import "MoneyManager.h"
 
@@ -260,7 +261,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -268,8 +269,18 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    UIButton *button = (UIButton *)sender;
+    UIViewController *dayView = segue.destinationViewController;
+    //if (monthView.class == ) {
+    if ([segue.identifier  isEqual: @"GotoDayView"]) {
+        int selectDateNo = [self.navigationItem.title intValue] * 10000 + button.tag * 100 + [button.titleLabel.text intValue];
+        
+        [dayView setValue:[NSString stringWithFormat:@"%d",selectDateNo] forKey:@"selectDate"];
+    }
+    self.navigationItem.title = @"";
+    
 }
 
- */
+
 
 @end

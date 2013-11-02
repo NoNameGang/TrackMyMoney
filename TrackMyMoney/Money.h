@@ -12,10 +12,11 @@
 
 @interface Money : NSManagedObject
 
-@property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * address;
-@property (nonatomic, retain) NSNumber * receipt;
+@property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * index;
 @property (nonatomic, retain) NSString * pic;
+@property (nonatomic, retain) NSNumber * receipt;
+@property (nonatomic, retain) NSNumber * dateNo;
 
 @end
