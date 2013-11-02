@@ -47,7 +47,6 @@
 		1864098D182230EA00697641 /* YearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearViewController.h; sourceTree = "<group>"; };
 		1864098E182230EA00697641 /* YearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearViewController.m; sourceTree = "<group>"; };
 		1864099B1822316400697641 /* TrackMyMoney-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TrackMyMoney-Info.plist"; sourceTree = "<group>"; };
-		1864099D18224EE900697641 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		284EAA9D17467372002CEFCB /* TrackMyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackMyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		284EAAA017467372002CEFCB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		284EAAA217467372002CEFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -168,7 +167,7 @@
 				ORGANIZATIONNAME = he110world;
 				TargetAttributes = {
 					284EAA9C17467372002CEFCB = {
-						DevelopmentTeam = 34DBXU6X45;
+						DevelopmentTeam = ZKUQX6QZP8;
 					};
 				};
 			};
